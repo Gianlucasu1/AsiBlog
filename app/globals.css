@@ -2,26 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.blog__gradient-background {
+  background: linear-gradient(to bottom, #0a0f20 0%, #1e2330 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.hover\:bg-skyblue {
+  @apply bg-sky-400;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+h2 {
+  font-size: 32px;
+}
+
+.background-image {
+  position: relative;
+  background-image: url(/fondotech.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+.background-image::after {
+  content: ""; /* Necesario para que el pseudo-elemento se muestre */
+  display: block;
+  position: absolute; /* Posición absoluta respecto al contenedor relativo */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Sombra oscura con transparencia */
+  z-index: 1; /* Asegúrate de que esté por encima del fondo pero debajo del contenido */
+}
+
+.content-above-overlay {
+  position: relative;
+  z-index: 5; /* Más alto que el pseudo-elemento para que aparezca encima */
+}
+
+.unix__bgimage {
+  position: relative;
+  background-image: url(/unix__bg.png);
+}
+
+.unix__bgimage::before {
+  content: ""; /* Necesario para que el pseudo-elemento se muestre */
+  display: block;
+  position: absolute; /* Posición absoluta respecto al contenedor relativo */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Sombra oscura con transparencia */
+  z-index: 1; /* Asegúrate de que esté por encima del fondo pero debajo del contenido */
+}
+
+.unix__blogtext {
+  color: #263338;
+  font-family: "PT Serif", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.unix__blogtext > *{
+  padding-top: 30px;
 }
